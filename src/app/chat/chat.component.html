@@ -14,7 +14,7 @@
         <div style=" margin: 45px; padding-left:  50%"  [style]="currentUser.name == message.author? 'padding-left': ''">
           <div style="display: flex; flex-direction: row;" >
             <div>
-              <img style="margin-left: 15px; border: none; border-radius: 50%; width: 35px; "
+              <img style="margin-left: 15px; margin-right: 8px; border: none; border-radius: 50%; width: 35px; "
                    *ngIf="currentUser.name == message.author" src="{{currentUser.photoUrl}}">
             </div>
             <div
