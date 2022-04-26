@@ -1,0 +1,23 @@
+
+<div style="background-color: #cacaca">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <input type="text" formControlName="text"  placeholder="Type your message"
+           style="border-style: solid; border-width: 0.3px; border-color: #b8b8b8; border-radius: 15px; margin: 20px">
+    <div
+      *ngIf="form.get('text')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('text')?.errors?.maxlength">
+        The text should be no more than
+        {{form.get('text')?.errors?.maxlength.requiredLength}}
+        characters. Now he
+        {{form.get('text')?.errors?.maxlength.actualLength}}
+        characters.
+      </small>
+    </div>
+    <button  *ngIf="this.form.value.text" class="btn-send" (ngSubmit)="submit()"><i class="fa fa-send"></i></button>
+  </form>
+</div>
+
+

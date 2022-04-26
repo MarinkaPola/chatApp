@@ -1,0 +1,32 @@
+<div style="width: 100%; border-right-color: lightslategrey">
+  <div style="display: flex; flex-direction: row; align-items: center; background-color: lightgray; ">
+    <div style="margin-top: 20px">
+      <i class="fa fa-circle icon"></i>
+      <img style="border: none; border-radius: 50%; width: 35px; margin-bottom: 8px; margin-left: 15px" src="{{currentUser.photoUrl}}">
+    </div>
+    <div style="margin-left: 15px; padding-top: 15px">{{currentUser.name}}</div>
+  </div>
+
+
+  <div class="right-section" style="height: 600px; overflow: auto;" >
+    <div *ngIf="messages">
+      <div *ngFor="let message of messages">
+        <div style=" margin: 45px; padding-left:  50%"  [style]="currentUser.name == message.author? 'padding-left': ''">
+          <div style="display: flex; flex-direction: row;" >
+            <div>
+              <img style="margin-left: 15px; border: none; border-radius: 50%; width: 35px; "
+                   *ngIf="currentUser.name == message.author" src="{{currentUser.photoUrl}}">
+            </div>
+            <div
+              style="font-size: small; border-style: none; border-radius: 15px; width: 70%; padding: 5px; background-color: #767676; "
+              [style.background]="currentUser.name == message.author? 'color': '#cccccc'">
+              {{message.text}}
+            </div>
+          </div>
+          <div style="font-size: x-small; margin-left: 6%">{{message.datemes| date :'medium'}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="messages?.length == 0"><p>Send your first message...</p></div>
+  </div>
+</div>

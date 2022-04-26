@@ -1,0 +1,69 @@
+<div style="display: flex; flex-direction: row;">
+  <div style="width: 40%">
+    <div style="display: flex; flex-direction: row; align-items: center; background-color: lightgray; ">
+      <div style="margin-top: 20px">
+        <i class="fa fa-circle icon"></i>
+        <img style="margin-left: 15px; border: none; border-radius: 50%; width: 35px; " src="{{userProfile.photoUrl}}">
+      </div>
+      <div style="margin-left: 15px; padding-top: 15px">{{userProfile.name}}</div>
+    </div>
+
+    <div style="display: flex; flex-direction: row" style="background-color: lightgrey; ">
+      <div class="main-section">
+        <div class="head-section">
+          <div class="headLeft-section">
+            <div class="headLeft-sub" style="background-color: lightgrey">
+              <div
+                style="display:flex; flex-direction:row; background-color: white; border-style: none; border-radius: 15px; ">
+                <i class="fa fa-search" style="padding-top: 10px; padding-left: 5px"></i>
+                <input type="text" name="search" placeholder="Search or start new chat" [(ngModel)]="searchStr"
+                       style="border: none;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="body-section">
+          <h5 style="color: cornflowerblue; padding-left: 15px">Chats</h5>
+          <div *ngIf="users" class="left-section " data-mcs-theme="minimal-dark">
+            <ul *ngFor="let user of users | searchUsers: searchStr " class="list-group">
+              <li (click)="openChat(user)">
+                <div class="chatList">
+                  <div class="img">
+                    <i class="fa fa-circle"></i>
+                    <img src="{{user.photoUrl}}">
+                  </div>
+                  <div>
+                    <div
+                      style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                      <div>{{user.name}}</div>
+                      <div style="font-size: xx-small; padding-right: 20px">{{user.messagesLast?.datemes| date :'medium'}}</div>
+                    </div>
+                    <div style="font-size: small">
+                      {{(user.messagesLast?.text)?.substring(0, 50)}}
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+  <div *ngIf="visibility == true" style=" width: 60%">start chatting</div>
+  <div [ngClass]="{invisible: visibility}" class="invisible{display:none;}" style=" width: 60%">
+    <div style="display: flex; flex-direction: column; ">
+      <app-chat></app-chat>
+      <app-message [userProfile]="userProfile"></app-message>
+    </div>
+  </div>
+</div>
