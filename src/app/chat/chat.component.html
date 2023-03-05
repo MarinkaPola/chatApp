@@ -10,7 +10,7 @@
 
   <div class="right-section" style="height: 600px; overflow: auto;" >
     <div *ngIf="messages">
-      <div *ngFor="let message of messages">
+      <div *ngFor="let message of messages" style="margin-top: 7px; margin-left: 7px;">
         <div style=" margin: 45px; padding-left:  50%"  [style]="currentUser.name == message.author? 'padding-left': ''">
           <div style="display: flex; flex-direction: row;" >
             <div>
