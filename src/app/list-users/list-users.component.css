@@ -62,7 +62,7 @@ body{
   list-style: none;
 }
 .left-section ul li{
-  padding: 15px 0px;
+  padding: 15px 10px;
   cursor: pointer;
   border-bottom-style: solid;
   border-bottom-width: 0.3px;
@@ -73,9 +73,7 @@ body{
   color: #fff;
   position: relative;
 }
-/*.mCustomScrollBox, .mCSB_container{
-  overflow: unset !important;
-}*/
+
 .left-section ul li.active .desc .time{
   color: #fff;
 }

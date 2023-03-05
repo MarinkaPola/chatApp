@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ListUsersService} from '../list-users.service';
-import {Message, User} from '../interface';
+import {User} from '../interface';
 import {Subscription} from 'rxjs';
 
 
@@ -14,15 +14,13 @@ export class ListUsersComponent implements OnInit, OnDestroy {
   private error: any;
   private Sub!: Subscription;
   visibility = true;
-  user!: User;
-  messages: Message[] = [];
 
   userProfile: User =
     {
       id: '-MN7ynlrFqNPWun6umE4',
       name: 'MariPola',
       phone: '+380997155542',
-      photoUrl: 'https://i.picsum.photos/id/569/200/200.jpg?hmac=rzX0dRJRyZs2NIa_h_87CJVeoetRLtTlweCZmYrYlCA'
+      photoUrl: 'https://fastly.picsum.photos/id/695/200/200.jpg?hmac=UJ4cowzXuCCU8226Q4uRM-Ahz6mj365L6nkT1QEBgR0'
     };
   searchStr!: '';
   private MSub!: Subscription;

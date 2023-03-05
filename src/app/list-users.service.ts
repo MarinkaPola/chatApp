@@ -13,13 +13,12 @@ export class ListUsersService {
   public user = new BehaviorSubject({name: '', phone: '', photoUrl: ''});
   currentUser = this.user.asObservable();
 
-/* public messages = new BehaviorSubject([{author: '', datemes: new Date(0) , text: ''}]);
-  currentMessages = this.messages.asObservable();*/
-
   public message = new BehaviorSubject({author: '', datemes: new Date(0) , text: ''});
   currentMessage = this.message.asObservable();
   private subChat = new Subject<any>();
   private subAnswer = new Subject<any>();
+
+  webSocket: WebSocket | undefined;
 
   constructor(private http: HttpClient) {}
 
@@ -61,7 +60,6 @@ export class ListUsersService {
         };
       }));
   }
-
  /* create(user: User): Observable<User> {
     return this.http.post(`${environment.fbDBUrl}/users.json`, user)
       .pipe(map((response: any ) => {
